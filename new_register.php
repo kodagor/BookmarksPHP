@@ -17,12 +17,12 @@
     try {
         // checking fields correctness
         if (!filled($_POST)) {
-            throw new Exception('Form has been filled incorrectly. 
+            throw new Exception('Form has been filled incorrectly.
                 Please <a href="register_form.php">return</a> and try again.');
         }
         // wrong e-mail address
         if (!correct_email($email)) {
-            throw new Exception('Wrong email address. 
+            throw new Exception('Wrong email address.
                 Please <a href="register_form.php">return</a> and try again.');
         }
         // passwords does not match
@@ -41,7 +41,7 @@
         $_SESSION['current_user'] = $username;
         // creating anchor to members site
         create_header_html('Registration successful');
-        echo "<h3>Registration successful! You can go to members site and menage your bookmarks!</h3>";
+        echo "<h3>You can go to members site and menage your bookmarks!</h3>";
         create_html_url('member.php', 'Members site');
 
         // end site

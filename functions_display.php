@@ -17,14 +17,19 @@
                         <h1>BookmarksPHP</h1>
                     </div>
                     <hr>
-                    
 
-    
     <?php
 
         if ($title) {
             create_title_html($title);
         }
+    }
+
+    function create_html_url($url, $name) {
+      // creates urls
+      ?>
+          <p><a href="<?php echo $url; ?>"><?php echo $name; ?></a></p>
+      <?php
     }
 
     function create_title_html($title) {
@@ -84,6 +89,7 @@
     function show_reg_form() {
         // shows register form
         ?>
+            <p>Already a member? <a href="login.php">Click here!</a></p>
             <form method="post" action="new_register.php">
                 <div class="formblock">
                     <h3>Register now!</h3>
