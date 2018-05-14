@@ -12,7 +12,8 @@
   <li><a href="#eight">member.php</a></li>
   <li><a href="#nine">new_register.php</a></li>
   <li><a href="#ten">register_form.php</a></li>
-  <li><a href="#eleven">style.css</a></li
+  <li><a href="#eleven">style.css</a></li>
+  <li><a href="#twelve">logout.php</a></li>
 </ul>
 <ul>
   <li>
@@ -153,11 +154,18 @@
     </dl>
    </li>
    <hr>
-      <li>
+   <li>
     <dl>
       <dt id="eleven"><h3>style.css<a href="#index"> (index)</a></h3></dt>
       <dd>The css file for make the app more friendly</dd>
      </dl>
    </li>
-   
+   <hr>
+     <li>
+      <dl>
+        <dt id="twelve"><h3>logout.php<a href="#index"> (index)</a></h3></dt>
+        <dd>allows user to logout and kill sesion<br>
+          includes <em><b><a href="four">functions_cards.php</a></b></em> and uses it's functions to create view</dd>
+       </dl>
+     </li>
 </ul>
