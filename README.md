@@ -165,7 +165,7 @@
       <dl>
         <dt id="twelve"><h3>logout.php<a href="#index"> (index)</a></h3></dt>
         <dd>allows user to logout and kill sesion<br>
-          includes <em><b><a href="four">functions_cards.php</a></b></em> and uses it's functions to create view</dd>
+          includes <em><b><a href="#four">functions_cards.php</a></b></em> and uses it's functions to create view</dd>
        </dl>
      </li>
 </ul>
