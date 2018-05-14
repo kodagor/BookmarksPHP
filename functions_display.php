@@ -115,4 +115,13 @@
         <?php
     }
 
+    function show_user_menu() {
+      // show user's menu options on site
+      ?>
+        <hr>
+        <a href="logout.php">logout pls</a>
+        <hr>
+      <?php
+    }
+
 ?>

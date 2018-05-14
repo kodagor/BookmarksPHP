@@ -38,11 +38,11 @@
         // trying to register
         register($username, $email, $pass);
         // register session
-        $_SESSION['current_user'] = $username;
+        $_SESSION['correct_user'] = $username;
         // creating anchor to members site
         create_header_html('Registration successful');
-        echo "<h3>You can go to members site and menage your bookmarks!</h3>";
-        create_html_url('member.php', 'Members site');
+        echo "<h3>Now you can login and go to members site, to manage your bookmarks!</h3>";
+        create_html_url('login.php', 'Login');
 
         // end site
         create_footer();
