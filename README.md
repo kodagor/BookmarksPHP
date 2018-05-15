@@ -15,6 +15,7 @@
   <li><a href="#eleven">style.css</a></li>
   <li><a href="#twelve">logout.php</a></li>
   <li><a href="#thirteen">change_password.php</a></li>
+  <li><a href="#fourteen">change_password_form.php</a></li>
 </ul>
 <ul>
   <li>
@@ -184,7 +185,7 @@
    <hr>
    <li>
     <dl>
-      <dt id="thirteen"><h3>change_password_form.php<a href="#index"> (index)</a></h3></dt>
+      <dt id="fourteen"><h3>change_password_form.php<a href="#index"> (index)</a></h3></dt>
       <dd>creates form for change password. Includes file <em><b><a href="four">functions_cards.php</a></b></em><br>
           and uses functions: </dd>
       <dl>
