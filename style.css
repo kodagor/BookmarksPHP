@@ -1,20 +1,20 @@
-body { 
-    margin: auto; 
-    font-family: Arial, Helvetica, sans-serif; 
+body {
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     width: 1200px;
 }
 h1, h3 {
     color: #338;
 }
-li, td { 
+li, td {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px; 
+    font-size: 16px;
 }
 hr {
-    color: #33c; 
+    color: #33c;
 }
-a { 
+a {
     color: #000
 }
 a:hover {
@@ -25,7 +25,7 @@ div.formblock {
     background: #ccc;
     width: 300px;
     padding: 6px;
-    border: 1px solid #000;                        
+    border: 1px solid #000;
 }
 section {
     height: 91vh;
@@ -43,4 +43,10 @@ footer {
     list-style: none;
     color: #338;
     line-height: 1.5em;
+}
+.menu {
+  display: inline-block;
+  border-left: 1px solid #33c;
+  padding-left: 6px;
+  padding-right: 4px;
 }

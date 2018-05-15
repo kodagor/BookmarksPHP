@@ -64,4 +64,21 @@
     }
   }
 
+  function change_password($username, $old_pass, $new_pass) {
+    // changes password from old_pass to new_pass2
+    // returns true or false
+
+    // if old_pass is correct, changes it to new_pass and returns true
+    // in other way, throws exception
+    login($username, $old_pass);
+    $dbConn = dbConnection();
+    $result = $dbConn->query("UPDATE users SET pass = sha1('".$new_pass."')
+      WHERE user_name = '".$username."'");
+    if (!$result) {
+      throw new Exception ('Changin password fault.');
+    } else {
+      return true;    // successful changing
+    }
+  }
+
 ?>

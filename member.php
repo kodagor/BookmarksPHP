@@ -33,15 +33,13 @@
     }
     create_header_html('Main site');
     check_correct_user();
-    // display menu
+
+    // creating options menu
     show_user_menu();
     // read user bookmarks
     // if ($array_url = load_user_urls($_SESSION['correct_user'])) {
     //   show_user_urls($array_url);
     // }
-    // creating options menu
-
-
     create_footer();
   }
 
