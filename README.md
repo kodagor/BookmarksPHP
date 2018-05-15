@@ -14,6 +14,7 @@
   <li><a href="#ten">register_form.php</a></li>
   <li><a href="#eleven">style.css</a></li>
   <li><a href="#twelve">logout.php</a></li>
+  <li><a href="#thirteen">change_password.php</a></li>
 </ul>
 <ul>
   <li>
@@ -42,6 +43,10 @@
         <dd>creates login form</dd>
         <dt>show_reg_form()</dt>
         <dd>creates register form</dd>
+        <dt>show_user_menu()</dt>
+        <dd>creates menu in member site with few options</dd>
+        <dt>show_password_form()</dt>
+        <dd>creates form for changing password</dd>
       </dl>
     </dl>
    </li>
@@ -68,7 +73,7 @@
       <dl>
         <dt>files icluded: <dt>
         <dd><a href="#five">functions_correct_data.php</a></dd>
-        <dd><a href="#six>functions_db.php</a></dd>
+        <dd><a href="#six">functions_db.php</a></dd>
         <dd><a href="#three">functions_auth.php</a></dd>
         <dd><a href="#two">functions_display.php</a></dd>
         <dd>functions_url.php</dd>
@@ -123,7 +128,7 @@
           <li>check_correct_user() from <em><b><a href="#three">functions_auth.php</a></b></em></li>
           <li>load_user_urls($_SESSION['correct_user'])) from <em><b><a href=""></a></b></em></li>
           <li>show_user_urls($array_url) from <em><b><a href=""></a></b></em></li>
-          <li>show_user_menu() from <em><b><a href=""></a></b></em></li>
+          <li>show_user_menu() from <em><b><a href="#two">functions_display.php</a></b></em></li>
         </ul>
     </dl>
    </li>
@@ -161,11 +166,37 @@
      </dl>
    </li>
    <hr>
-     <li>
+   <li>
+    <dl>
+      <dt id="twelve"><h3>logout.php<a href="#index"> (index)</a></h3></dt>
+      <dd>allows user to logout and kill sesion<br>
+        includes <em><b><a href="#four">functions_cards.php</a></b></em> and uses it's functions to create view</dd>
+     </dl>
+   </li>
+   <hr>
+   <li>
+    <dl>
+      <dt id="thirteen"><h3>change_password.php<a href="#index"> (index)</a></h3></dt>
+      <dd>allows user to logout and kill sesion<br>
+        includes <em><b><a href="#four">functions_cards.php</a></b></em> and uses it's functions to create view</dd>
+    </dl>
+   </li>
+   <hr>
+   <li>
+    <dl>
+      <dt id="thirteen"><h3>change_password_form.php<a href="#index"> (index)</a></h3></dt>
+      <dd>creates form for change password. Includes file <em><b><a href="four">functions_cards.php</a></b></em><br>
+          and uses functions: </dd>
       <dl>
-        <dt id="twelve"><h3>logout.php<a href="#index"> (index)</a></h3></dt>
-        <dd>allows user to logout and kill sesion<br>
-          includes <em><b><a href="#four">functions_cards.php</a></b></em> and uses it's functions to create view</dd>
-       </dl>
-     </li>
+        <dt>create_header_html('Change password')</dt>
+        <dd>from <a href="#two">functions_display.php</a>; to create header with title</dd>
+        <dt>check_correct_user()</dt>
+        <dd>from <a href="#three">functions_auth.php</a>; to check if user is correct</dd>
+        <dt>show_password_form()</dt>
+        <dd>from <a href="#two">functions_display.php</a>; to create form </dd>
+        <dt>show_user_menu() and create_footer(); </dt>
+        <dd>from <a href="#two">functions_display.php</a>;</dd>
+      </dl>
+    </dl>
+   </li>  
 </ul>
