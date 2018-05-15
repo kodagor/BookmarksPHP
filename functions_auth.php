@@ -81,4 +81,84 @@
     }
   }
 
+  function setup_password($username) {
+    // setting up a password as a random value
+    // return new password or false, if failed
+
+    // load random word
+    $new_pass = load_random_password(6, 16);
+
+    if ($new_pass == false) {
+      // if error, create new default pass
+      $new_pass = "changeMe";
+    }
+
+    // setting up new password in data base or returning false
+    $dbConn = dbConnection();
+    $result = $dbConn->query("UPDATE users SET pass = sha1('".$new_pass."')
+      WHERE user_name = '".$username."'");
+
+    if (!$result) {
+      throw new Exception('Cannot create new password. Please try again later');  // pass not changed
+    } else {
+      return $new_pass;      // password changed
+    }
+  }
+
+  function load_random_password($min, $max) {
+    // create string with all letters, randomize it
+    // and take string with length in range from $min to $max
+    try {
+      // string
+      $letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      // take string length
+      $len = strlen($letters);
+      // set number of iterations
+      $range = rand($min, $max);
+      // create new pass
+      $new_pass = "";
+
+      for ($i = 1; $i <= $range; $i++) {
+        // take random letter and attach it to new password
+        $new_pass .= $letters[(rand(1, $len)-1)];
+        // if shit happen, be sure that pass length is maximum 16 and min 6
+        if (strlen($new_pass) > 16) {
+          break;
+        }
+      }
+
+      return $new_pass;
+    }
+    catch (Exception $e) {
+      return false;
+    }
+  }
+
+  function inform_password($username, $pass) {
+    // inform user about password change
+
+    $dbConn = dbConnection();
+    $result = $dbConn->query("SELECT email FROM users WHERE user_name = '".$username."'");
+
+    if (!$result) {
+      throw new Exception("Cannot find email address");
+    } elseif ($result->num_rows == 0) {
+      // username not in database
+      throw new Exception("Cannot find email address");
+    } else {
+      // send email with password
+      $row = $result->fetch_object();
+      $email = $row->email;
+      $from = "From: noreply@BookmarksPHP \r\n";
+      $msg = "New password: $pass \r\n"
+        ."Please change it immediatly. \r\n";
+
+      if (mail($email, 'new password', $msg, $from)) {
+        return true;
+      } else {
+        return new Exception("There was problem with sending email");
+      }
+    }
+  }
+
 ?>

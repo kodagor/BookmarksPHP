@@ -74,11 +74,11 @@
                     <h2>Login</h2>
                     <p>
                         <label for="username">Username: </label><br>
-                        <input type="text" id="username" name="username">
+                        <input type="text" id="username" name="username" size="16" maxlength="16" required>
                     </p>
                     <p>
                         <label for="pass">Password: </label><br>
-                        <input type="password" id="pass" name="pass">
+                        <input type="password" id="pass" name="pass" size="16" maxlength="16" required>
                     </p>
                     <button type="submit">Login</button>
                     <p><a href="forget_form.php">Forgot your password?</a></p>
@@ -144,7 +144,23 @@
                     <label for="new_pass2">Repeat new password: </label><br>
                     <input type="password" id="new_pass2" name="new_pass2" size="16" maxlength="16" required>
                 </p>
-                <button type="submit">Login</button>
+                <button type="submit">Change password</button>
+            </div>
+        </form>
+      <?php
+    }
+
+    function forget_password() {
+      // shows form for password recovery
+      ?>
+        <form method="post" action="forget_password.php">
+            <div class="formblock">
+                <h2>Password recovery</h2>
+                <p>
+                    <label for="username">Username: </label><br>
+                    <input type="text" id="username" name="username" size="16" maxlength="16" required>
+                </p>
+                <button type="submit">Send new password</button>
             </div>
         </form>
       <?php
