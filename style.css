@@ -23,7 +23,7 @@ a:hover {
 }
 div.formblock {
     background: #ccc;
-    width: 300px;
+    width: 500px;
     padding: 6px;
     border: 1px solid #000;
 }
@@ -44,9 +44,9 @@ footer {
     color: #338;
     line-height: 1.5em;
 }
-.menu {
+/* .menu {
   display: inline-block;
   border-left: 1px solid #33c;
   padding-left: 6px;
   padding-right: 4px;
-}
+} */

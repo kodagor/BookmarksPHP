@@ -17,6 +17,7 @@
   }
   $pass = $_POST['pass'];
 
+
   if ($username && $pass) {
     // trying to login
     try {
@@ -31,16 +32,18 @@
       create_footer();
       exit;
     }
-    create_header_html('Main site');
-    check_correct_user();
-
-    // creating options menu
-    show_user_menu();
-    // read user bookmarks
-    // if ($array_url = load_user_urls($_SESSION['correct_user'])) {
-    //   show_user_urls($array_url);
-    // }
-    create_footer();
   }
+
+  create_header_html('Main site');
+  check_correct_user();
+
+  // creating options menu
+  show_user_menu();
+  // read user bookmarks
+  if ($array_url = load_user_urls($_SESSION['correct_user'])) {
+    show_user_urls($array_url);
+  }
+  create_footer();
+
 
 ?>

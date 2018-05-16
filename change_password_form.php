@@ -3,6 +3,7 @@
   require_once('functions_cards.php');
 
   session_start();
+
   create_header_html('Change password');
 
   // check if user is correct

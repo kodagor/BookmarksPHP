@@ -1,6 +1,5 @@
 <?php
-
-    function create_header_html($title) {
+      function create_header_html($title) {
         // displays html header
         ?>
         <!DOCTYPE html>
@@ -116,16 +115,6 @@
         <?php
     }
 
-    function show_user_menu() {
-      // show user's menu options on site
-      ?>
-        <hr>
-        <a href="logout.php" class="menu">Logout</a>
-        <a href="change_password_form.php" class="menu">Change password</a>
-        <hr>
-      <?php
-    }
-
     function show_password_form() {
       // show form for changing password
       ?>
@@ -166,4 +155,77 @@
       <?php
     }
 
+    function show_user_urls($array_url) {
+      // shows user's urls
+
+      // setting a global var, for checking site
+      global $cards_tab;
+      $cards_tab = true;
+      ?>
+      <br>
+        <p>
+          <form name="cards_tab" method="post" action="delete_cards.php">
+            <table width="500" cellpadding="2" cellspacing="0">
+              <?php
+                $color = '#cccccc';
+                echo '<tr bgcolor="'.$color.'"><td><strong>Bookmark</strong></td>';
+                echo '<td><strong>Delete?</strong></td></tr>';
+                if ((is_array($array_url)) && (count($array_url > 0))) {
+                  foreach($array_url as $url) {
+                    if ($color == '#cccccc') {
+                      $color = '#ffffff';
+                    } else {
+                      $color = '#cccccc';
+                    }
+                    // and showtime is here
+                    echo '<tr bgcolor="'.$color.'"><td><a href="'.$url.'">'.htmlspecialchars($url).'</a></td>';
+                    echo '<td><input type="checkbox" name="delete_me[]" value="'.$url.'"></td></tr>';
+                  }
+                } else {
+                  echo '<tr><td>There are not saved bookmarks</td></tr>';
+                }
+              ?>
+            </table>
+          </form>
+        </p>
+      <?php
+    }
+
+    function show_user_menu() {
+      // show user's menu options on site
+      ?>
+        <hr>
+          <a href="member.php" class="menu">Main page</a>&nbsp;/&nbsp;
+          <a href="add_card_form.php" class="menu">Add bookmark</a>&nbsp;/&nbsp;
+      <?php
+        // option 'delete' only visible, when bookmarks table appears
+        global $cards_tab;
+        if ($cards_tab == false) {
+
+          echo "<a href=\"#\" onClick=\"cards_tab.submit();\">Delete bookmarks</a>&nbsp;/&nbsp;";
+        } else {
+          echo "<span style=\"color: #cccccc\">Delete bookmarks</span>&nbsp;/&nbsp;";
+        }
+
+      ?>
+          <a href="change_password_form.php" class="menu">Change password</a>&nbsp;/&nbsp;
+          <a href="logout.php" class="menu">Logout</a>
+        <hr>
+      <?php
+    }
+
+    function show_add_bookmarks_form() {
+      // shows form for new bookmark
+      ?>
+        <form name="cards_tab" method="post" action="add_card.php">
+          <div class="formblock">
+            <h2>Add new bookmark: </h2>
+            <p>
+              <input type="text" name="new_url" id="new_url" size="40" maxlength="255" value="http://" required>
+            </p>
+            <button type="submit">Add</button>
+          </div>
+        </form>
+      <?php
+        }
 ?>

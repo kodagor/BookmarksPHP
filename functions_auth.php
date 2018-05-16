@@ -106,7 +106,7 @@
   }
 
   function load_random_password($min, $max) {
-    // create string with all letters, randomize it
+    // create string with letters and nummbers, randomize it
     // and take string with length in range from $min to $max
     try {
       // string

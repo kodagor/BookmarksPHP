@@ -6,6 +6,6 @@
     require_once('functions_db.php');
     require_once('functions_auth.php');
     require_once('functions_display.php');
-//    require_once('functions_url.php');
+    require_once('functions_url.php');
 
 ?>
