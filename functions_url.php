@@ -52,4 +52,34 @@
     return true;
   }
 
+  function recommend_urls($correct_user, $popular=1) {
+    // creating semi intelligent recommendations
+    // if users have common bookmarks, they can like other bookmarks from other users
+    $dbConn = dbConnection();
+
+    // looking for other fitting users with common urls
+    // if popularity is greater than one, then more than one person need to has this
+    // adderss in bookmark
+
+    $query = "SELECT url_card FROM overlaps WHERE user_name IN
+      (SELECT DISTINCT(z2.user_name) FROM overlaps z1, overlaps z2
+      WHERE z1.user_name='".$correct_user."' AND z1.user_name != z2.user_name
+      AND z1.url_card != z2.url_card) AND url_card NOT IN
+      (SELECT url_card FROM overlaps WHERE user_name='".$correct_user."') GROUP BY url_card
+      HAVING COUNT(url_card)>".$popular;
+
+    if (!($result = $dbConn->query($query))) {
+      throw new Exception('Bookmards for recommendations has not been found.');
+    }
+    if ($result ->num_rows == 0) {
+      throw new Exception('Bookmards for recommendations has not been found.');
+    }
+    $urls = array();
+    // creating array for valid urls
+    for ($counter = 0; $row = $result->fetch_object(); $counter++) {
+      $urls[$counter] = $row->url_card;
+    }
+    return $urls;
+  }
+
 ?>

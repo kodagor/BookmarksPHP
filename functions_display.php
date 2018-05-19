@@ -208,6 +208,7 @@
         }
 
       ?>
+          <a href="recommend.php" class="menu">Reccommend URL</a>&nbsp;/&nbsp;
           <a href="change_password_form.php" class="menu">Change password</a>&nbsp;/&nbsp;
           <a href="logout.php" class="menu">Logout</a>
         <hr>
@@ -228,4 +229,30 @@
         </form>
       <?php
         }
+    function show_recommend_urls($url_aray) {
+      // shows recommend urls
+      ?>
+      <br />
+      <table width="500" cellpadding="2" cellspacing="0">
+        <?php
+        $color = "#cccccc";
+        echo "<tr bgcolor=\"".$color."\">
+            <td><strong>Recommendations</strong></td></tr>";
+        if ((is_array($url_aray) && count($url_aray)>0)) {
+        foreach ($url_aray as $url) {
+          if ($color == "#cccccc") {
+            $color = "#ffffff";
+          } else {
+            $color = "#cccccc";
+          }
+          echo "<tr bgcolor=\"".$color."\">
+                <td><a href=\"".$url."\">".htmlspecialchars($url)."</a></td></tr>";
+        }
+        } else {
+        echo "<tr><td>No recommendations at the moment.</td></tr>";
+        }
+        ?>
+      </table>
+      <?php
+    }
 ?>
